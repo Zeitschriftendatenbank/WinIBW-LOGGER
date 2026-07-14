@@ -7,7 +7,7 @@ LOGGER.prototype = {
     setLogFile:
         function (fileName, path) {
             this.fileName = fileName || 'LOG';
-            this.path = path || '\\listen';
+            this.path = path || '\\log';
             this.theRelativePath = this.path + '\\' + this.fileName;
         },
     log:
