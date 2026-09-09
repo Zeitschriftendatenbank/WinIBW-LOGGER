@@ -1,0 +1,56 @@
+name: Sync README to index.html
+
+on:
+  push:
+    paths:
+      - "README.md"
+    branches:
+      - "**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build index.html from README.md
+        run: |
+          python - <<'PY'
+          import html
+          from pathlib import Path
+
+          readme = Path("README.md").read_text(encoding="utf-8")
+
+          page = f"""<!doctype html>
+          <html lang="en">
+          <head>
+            <meta charset="utf-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <title>WinIBW-LOGGER</title>
+          </head>
+          <body>
+            <pre><code>{html.escape(readme)}</code></pre>
+          </body>
+          </html>
+          """
+
+          Path("index.html").write_text(page, encoding="utf-8")
+          PY
+
+      - name: Commit and push if changed
+        run: |
+          if git diff --quiet -- index.html; then
+            echo "No changes in index.html"
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "chore: sync index.html with README.md"
+          git push
