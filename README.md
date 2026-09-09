@@ -1,5 +1,5 @@
 # WinIBW-LOGGER
-Logger für die WinIBW4
+Logger für die WinIBW4.
 
 ## Installation
 ### lokal
@@ -11,8 +11,8 @@ Beispiel: Das Script liegt unter `H:\WinIBW4-Scripte\logger\`, dann ergänzen Si
 
 Die Scripte müssen neu geladen werden.
 
-## remote
-Alternativ können Sie auch das entfernt bereitgestellte Script nutzen. Fügen Sie dazu den URL http://winibw-repo.sbb.berlin/winibw/logger/ hinzu.
+### remote
+Alternativ können Sie auch das entfernt bereitgestellte Script nutzen. Fügen Sie dazu den URL `http://winibw-repo.sbb.berlin/winibw/logger/` hinzu.
 
 Die Scripte müssen neu geladen werden.
 
@@ -24,4 +24,3 @@ Der LOGGER kann im Code mit drei Parametern initialisiert werden
 var logger = new LOGGER('LOG_FILE.log', '\\log', '\t');
 logger.log('Datensatz nicht gefunden');
 ```
-
