@@ -3,6 +3,7 @@ function LOGGER(fileName, path, delimiter) {
     this.delimiter = delimiter || "\t";
 }
 
+
 LOGGER.prototype = {
     setLogFile:
         function (fileName, path) {
