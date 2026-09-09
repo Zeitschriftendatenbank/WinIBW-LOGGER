@@ -1,5 +1,5 @@
 # WinIBW-LOGGER
-Logger für die WinIBW4.
+Logger für die WinIBW4..
 
 ## Installation
 ### lokal
