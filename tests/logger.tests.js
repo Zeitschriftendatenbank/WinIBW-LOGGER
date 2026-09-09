@@ -1,0 +1,1 @@
+// logger/tests/logger.tests.js - placeholder test
